@@ -10,8 +10,9 @@ contract squirrel {
     
     mapping (address => goal)  goals;
 
-    function createGoal(uint256 target) public returns (bool) {
+    function createGoal(uint256 target) payable public returns (bool) {
         goals[msg.sender].target = target;
+        goals[msg.sender].balance += msg.value;
         return true;
     }
     
