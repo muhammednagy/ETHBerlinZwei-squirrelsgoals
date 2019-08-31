@@ -21,6 +21,7 @@ contract squirrel {
         if (goals[msg.sender].balance >= goals[msg.sender].target) {
                 msg.sender.transfer(goals[msg.sender].balance);
                 goals[msg.sender].balance = 0;
+                goals[msg.sender].target = 0;
         }
         return goals[msg.sender].balance;
     } 
